@@ -1,0 +1,6 @@
+PLAINWEATHER - GLOBAL CONTINUITY PROMPT
+
+Append this to every scene prompt. It is already included inside each scene's
+prompt.txt, so you only need this file if you are assembling a prompt by hand.
+
+Use the supplied start and end keyframes as strict visual anchors. Preserve the exact Plainweather products, packaging proportions, mineral-green and muted-clay details, wordmark, label placement, limestone shelf, fogged shower glass, cool grey daylight, and fine natural grain. Keep the film product-only: no people, faces, bodies, or hands. Use physically plausible slow camera motion.

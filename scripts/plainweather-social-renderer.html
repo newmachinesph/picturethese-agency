@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1080, initial-scale=1" />
+    <title>Plainweather social artboard renderer</title>
+    <style>
+      html,
+      body {
+        width: 1080px;
+        height: 1350px;
+        margin: 0;
+        overflow: hidden;
+        background: #eee9df;
+      }
+
+      canvas {
+        display: block;
+        width: 1080px;
+        height: 1350px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="artboard" width="1080" height="1350" aria-label="Plainweather social media artboard"></canvas>
+    <script>
+      const W = 1080;
+      const H = 1350;
+      const paper = "#eee9df";
+      const ink = "#25302d";
+      const moss = "#5e6d62";
+      const clay = "#d9b9aa";
+      const muted = "#59615c";
+      const canvas = document.querySelector("#artboard");
+      const ctx = canvas.getContext("2d");
+      const post = new URLSearchParams(location.search).get("post") || "cover";
+
+      const sources = {
+        logo: "../public/assets/images/plainweather-logo-lockup-v1.webp",
+        product: "../public/assets/images/plainweather-product-portrait-v1.webp",
+        texture: "../public/assets/images/plainweather-texture-study-v3.webp",
+      };
+
+      function loadImage(src) {
+        return new Promise((resolve, reject) => {
+          const image = new Image();
+          image.decoding = "sync";
+          image.onload = () => resolve(image);
+          image.onerror = reject;
+          image.src = src;
+        });
+      }
+
+      function drawCover(image, x, y, width, height, focusX = 0.5, focusY = 0.5) {
+        const scale = Math.max(width / image.width, height / image.height);
+        const sourceWidth = width / scale;
+        const sourceHeight = height / scale;
+        const sourceX = Math.max(0, Math.min(image.width - sourceWidth, (image.width - sourceWidth) * focusX));
+        const sourceY = Math.max(0, Math.min(image.height - sourceHeight, (image.height - sourceHeight) * focusY));
+        ctx.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
+      }
+
+      function drawTrackingText(text, x, y, tracking = 3) {
+        let cursor = x;
+        for (const character of text) {
+          ctx.fillText(character, cursor, y);
+          cursor += ctx.measureText(character).width + tracking;
+        }
+      }
+
+      function drawLogo(image, x, y, width) {
+        const ratio = image.height / image.width;
+        ctx.drawImage(image, x, y, width, width * ratio);
+      }
+
+      function rule(x1, y1, x2, y2, color = "rgba(37,48,45,.38)", width = 2) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+
+      function label(text, x, y, color = ink) {
+        ctx.fillStyle = color;
+        ctx.font = '600 22px Consolas, "Liberation Mono", monospace';
+        ctx.textBaseline = "alphabetic";
+        drawTrackingText(text.toUpperCase(), x, y, 3.2);
+      }
+
+      function coverArt(logo) {
+        ctx.fillStyle = moss;
+        ctx.fillRect(0, 0, W, H);
+
+        ctx.fillStyle = paper;
+        ctx.fillRect(84, 82, 500, 118);
+        drawLogo(logo, 108, 111, 452);
+        label("CAROUSEL / COVER", 84, 242, paper);
+
+        ctx.fillStyle = paper;
+        ctx.font = '400 108px Georgia, "Palatino Linotype", serif';
+        ctx.textBaseline = "top";
+        ctx.fillText("Your skin", 84, 456);
+        ctx.fillText("does not", 84, 566);
+        ctx.fillText("need another", 84, 676);
+        ctx.fillText("hobby.", 84, 786);
+
+        rule(84, 1178, 996, 1178, "rgba(238,233,223,.62)", 2);
+        label("01 / 06", 84, 1247, paper);
+        label("ROUTINE RELIEF", 744, 1247, paper);
+      }
+
+      function productArt(product) {
+        drawCover(product, 0, 0, W, H, 0.5, 0.48);
+        const gradient = ctx.createLinearGradient(0, 760, 0, 1350);
+        gradient.addColorStop(0, "rgba(238,233,223,0)");
+        gradient.addColorStop(0.26, "rgba(238,233,223,.86)");
+        gradient.addColorStop(0.5, "rgba(238,233,223,.98)");
+        gradient.addColorStop(1, paper);
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 720, W, 630);
+
+        label("PRODUCT POST", 84, 1000, ink);
+        ctx.fillStyle = ink;
+        ctx.font = '400 92px Georgia, "Palatino Linotype", serif';
+        ctx.textBaseline = "top";
+        ctx.fillText("Three products.", 84, 1055);
+        ctx.fillText("Three jobs.", 84, 1150);
+        rule(84, 1280, 996, 1280, "rgba(37,48,45,.44)", 2);
+      }
+
+      function educationArt(logo) {
+        ctx.fillStyle = clay;
+        ctx.fillRect(0, 0, W, H);
+        drawLogo(logo, 84, 78, 452);
+        label("THREE STEPS / THREE JOBS", 84, 190, ink);
+        rule(84, 248, 996, 248);
+
+        const rows = [
+          ["01", "Wash", "without the squeak."],
+          ["02", "Hold", "what the day takes."],
+          ["03", "Seal", "it in. Stop there."],
+        ];
+
+        rows.forEach(([number, verb, detail], index) => {
+          const top = 318 + index * 292;
+          label(number, 84, top + 32, ink);
+          ctx.fillStyle = ink;
+          ctx.font = '400 92px Georgia, "Palatino Linotype", serif';
+          ctx.textBaseline = "top";
+          ctx.fillText(verb, 210, top - 12);
+          ctx.fillStyle = muted;
+          ctx.font = '400 34px "Segoe UI", Arial, sans-serif';
+          ctx.fillText(detail, 210, top + 110);
+          rule(84, top + 228, 996, top + 228);
+        });
+
+        label("PLAINWEATHER / DAILY THREE", 84, 1270, ink);
+      }
+
+      function textureArt(texture) {
+        drawCover(texture, 0, 0, W, H, 0.5, 0.5);
+        const topGradient = ctx.createLinearGradient(0, 0, 0, 300);
+        topGradient.addColorStop(0, "rgba(37,48,45,.35)");
+        topGradient.addColorStop(1, "rgba(37,48,45,0)");
+        ctx.fillStyle = topGradient;
+        ctx.fillRect(0, 0, W, 300);
+        label("FORMULA / FIELD NOTES", 72, 82, paper);
+
+        ctx.fillStyle = "rgba(238,233,223,.94)";
+        ctx.fillRect(0, 1110, W, 240);
+        rule(0, 1110, W, 1110, "rgba(37,48,45,.5)", 2);
+        const columns = [
+          ["CLEANSE", "SATIN"],
+          ["SERUM", "SLIP"],
+          ["CREAM", "CUSHION"],
+        ];
+        columns.forEach(([name, feel], index) => {
+          const x = 72 + index * 336;
+          if (index > 0) rule(x - 40, 1150, x - 40, 1310, "rgba(37,48,45,.28)", 2);
+          label(name, x, 1194, ink);
+          ctx.fillStyle = ink;
+          ctx.font = '400 44px Georgia, "Palatino Linotype", serif';
+          ctx.fillText(feel, x, 1274);
+        });
+      }
+
+      Promise.all([loadImage(sources.logo), loadImage(sources.product), loadImage(sources.texture)])
+        .then(([logo, product, texture]) => {
+          if (post === "product") productArt(product);
+          else if (post === "education") educationArt(logo);
+          else if (post === "texture") textureArt(texture);
+          else coverArt(logo);
+          document.body.dataset.ready = "true";
+        })
+        .catch((error) => {
+          document.body.dataset.ready = "error";
+          document.body.textContent = error.message;
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+PLAINWEATHER - SCENE C - TEXTURE DRIFT
+==================================================================
+Duration      8 seconds   (Veo accepts 4, 6 or 8 only)
+Aspect ratio  9:16 vertical
+Resolution    720p or 1080p
+Start frame   start.png
+End frame     end.png
+Input mode    FIRST + LAST FRAME  -  not a style reference
+Timeline      0:16-0:27 of the 34s master (slowed to 0.727x to fill 11s)
+
+------------------------------------------------------------------
+PROMPT   (paste this whole block)
+------------------------------------------------------------------
+True overhead 80 mm macro shot drifting slowly and evenly from left to right at constant height. Three stationary skincare textures sit in a row on cool-grey ceramic tile: a milky white cleanser ribbon, a clear translucent serum gel bead, and a dense off-white cream swoop. Each swatch holds its exact shape, gloss, ridges and tiny air bubbles, resting perfectly still as the camera glides over them. Cool broad daylight, soft even illumination, crisp tactile surface detail, muted mineral palette, fine natural film grain. Calm editorial macro realism. Ambient noise: quiet bathroom room tone.
+
+Match the supplied start and end keyframes exactly as the opening and closing frames. Hold identical product design, packaging proportions, wordmark and label placement, mineral-green and muted-clay details, shelf material, background, and cool grey exposure for the entire shot. A product-only film with one physically plausible, continuous, slow camera move at 24 fps.
+
+------------------------------------------------------------------
+NEGATIVE PROMPT
+------------------------------------------------------------------
+people, faces, bodies, hands, fingers, extra products, duplicated bottles, botanical props, plants, flowers, towels, candles, laboratory glassware, water splashes, floating labels, arrows, subtitles, captions, text overlays, invented packaging text, morphing, object replacement, speed ramps, zoom pulses, rack focus, lens flare, glossy spa lighting, exposure shift, dissolves, camera rotation, trend transitions
+
+------------------------------------------------------------------
+DO NOT GENERATE
+------------------------------------------------------------------
+Typography is added in the edit, never in Veo, so letterforms stay exact.
+Copy carried by this scene, one word per third:
+  WASH.    HOLD.    SEAL.
+
+NOTE: this is the longest scene (11s) against an 8s cap, so it is slowed
+the most. If the 0.727x drift reads as sluggish, generate two 8s clips
+instead - start-to-middle and middle-to-end - and hard-cut them.

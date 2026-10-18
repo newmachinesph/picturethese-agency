@@ -1,0 +1,5 @@
+PLAINWEATHER - NEGATIVE PROMPT
+
+Identical for all four scenes. Paste into the negative prompt field.
+
+people, faces, bodies, hands, fingers, extra products, duplicated bottles, botanical props, plants, flowers, towels, candles, laboratory glassware, water splashes, floating labels, arrows, subtitles, captions, text overlays, invented packaging text, morphing, object replacement, speed ramps, zoom pulses, rack focus, lens flare, glossy spa lighting, exposure shift, dissolves, camera rotation, trend transitions

@@ -1,0 +1,27 @@
+PLAINWEATHER - SCENE A - OPENING SHELF
+==================================================================
+Duration      8 seconds   (Veo accepts 4, 6 or 8 only)
+Aspect ratio  9:16 vertical
+Resolution    720p or 1080p
+Start frame   start.png
+End frame     end.png
+Input mode    FIRST + LAST FRAME  -  not a style reference
+Timeline      0:00-0:07 of the 34s master (1s trimmed off the end)
+
+------------------------------------------------------------------
+PROMPT   (paste this whole block)
+------------------------------------------------------------------
+Static 50 mm medium close-up with an extremely slow, stable dolly push in. Three Plainweather skincare products stand in a fixed row on a damp pale-limestone bathroom ledge: a chalk-white cleanser tube, a frosted smoke-grey serum bottle with a mineral-green pump, and a low off-white porcelain cream jar with a mineral-green lid. The products remain perfectly still; only a few condensation trails creep slowly downward on the fogged shower glass behind them. Cool grey morning daylight, soft and even, damp limestone texture, deep quiet. Calm editorial product realism, muted mineral palette, restrained depth of field, fine natural film grain. Ambient noise: quiet bathroom room tone.
+
+Match the supplied start and end keyframes exactly as the opening and closing frames. Hold identical product design, packaging proportions, wordmark and label placement, mineral-green and muted-clay details, shelf material, background, and cool grey exposure for the entire shot. A product-only film with one physically plausible, continuous, slow camera move at 24 fps.
+
+------------------------------------------------------------------
+NEGATIVE PROMPT
+------------------------------------------------------------------
+people, faces, bodies, hands, fingers, extra products, duplicated bottles, botanical props, plants, flowers, towels, candles, laboratory glassware, water splashes, floating labels, arrows, subtitles, captions, text overlays, invented packaging text, morphing, object replacement, speed ramps, zoom pulses, rack focus, lens flare, glossy spa lighting, exposure shift, dissolves, camera rotation, trend transitions
+
+------------------------------------------------------------------
+DO NOT GENERATE
+------------------------------------------------------------------
+Typography is added in the edit, never in Veo, so letterforms stay exact.
+Copy carried by this scene:  YOUR SKIN DOES NOT NEED ANOTHER HOBBY.

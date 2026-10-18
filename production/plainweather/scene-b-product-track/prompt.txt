@@ -1,0 +1,29 @@
+PLAINWEATHER - SCENE B - PRODUCT TRACK
+==================================================================
+Duration      8 seconds   (Veo accepts 4, 6 or 8 only)
+Aspect ratio  9:16 vertical
+Resolution    720p or 1080p
+Start frame   start.png
+End frame     end.png
+Input mode    FIRST + LAST FRAME  -  not a style reference
+Timeline      0:07-0:16 of the 34s master (slowed to 0.889x to fill 9s)
+
+------------------------------------------------------------------
+PROMPT   (paste this whole block)
+------------------------------------------------------------------
+Continuous 75 mm macro tracking shot sliding smoothly left to right at a fixed lens height. The camera travels across three stationary Plainweather products on a damp pale-limestone ledge, opening tight on the chalk-white Quiet Cleanse tube, passing the frosted smoke-grey Holding Serum bottle with its mineral-green pump, and settling on the low porcelain Weather Cream jar with its matte mineral-green lid. The products stay completely still while only the camera moves, and each packaging label stays crisp and legible as it faces the lens. Fogged shower glass fills the background at a constant shelf horizon. Cool grey morning daylight, restrained depth of field, fine natural film grain, calm editorial product realism. Ambient noise: quiet bathroom room tone.
+
+Match the supplied start and end keyframes exactly as the opening and closing frames. Hold identical product design, packaging proportions, wordmark and label placement, mineral-green and muted-clay details, shelf material, background, and cool grey exposure for the entire shot. A product-only film with one physically plausible, continuous, slow camera move at 24 fps.
+
+------------------------------------------------------------------
+NEGATIVE PROMPT
+------------------------------------------------------------------
+people, faces, bodies, hands, fingers, extra products, duplicated bottles, botanical props, plants, flowers, towels, candles, laboratory glassware, water splashes, floating labels, arrows, subtitles, captions, text overlays, invented packaging text, morphing, object replacement, speed ramps, zoom pulses, rack focus, lens flare, glossy spa lighting, exposure shift, dissolves, camera rotation, trend transitions
+
+------------------------------------------------------------------
+DO NOT GENERATE
+------------------------------------------------------------------
+No on-screen copy in this scene.
+Voiceover beat laid over it in the edit:
+  "Ours does three jobs: wash without the squeak, add back what the day
+   takes, and seal it in."
